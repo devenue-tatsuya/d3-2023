@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>D3 Test</title>
+    <script src="https://d3js.org/d3.v5.min.js"></script>
+  </head>
+  <body>
+    <svg width='600' height='240'>
+      <circle/>
+      <circle/>
+      <circle/>
+    </svg>
+    
+    <script>
+      let data = [15,20,5]
+      let circles =
+        d3.select('svg')
+          .selectAll('circle')
+          .data(data)
+
+      circles
+        .attr('cx', 0 )
+        .attr('cy', 120 )
+        .attr('r', 10 )
+        .attr('fill', 'pink' )
+    </script>
+  </body>
+</html>
