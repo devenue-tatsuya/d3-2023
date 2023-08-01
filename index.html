@@ -11,8 +11,12 @@
       <circle/>
       <circle/>
     </svg>
-    
+
     <script>
+    // #03 データを図形に反映させてみよう
+      const width = 600
+      const height = 240
+
       let data = [15,20,5]
       let circles =
         d3.select('svg')
@@ -20,9 +24,18 @@
           .data(data)
 
       circles
-        .attr('cx', 0 )
-        .attr('cy', 120 )
-        .attr('r', 10 )
+        // .attr('cx', 0 )
+        .attr('cx', function(d, i) {
+          return i * 50 + 50
+        })
+
+        // .attr('cy', 120 )
+        .attr('cy', height / 2 )
+
+        // .attr('r', 10 )
+        .attr('r', function(d) {
+          return d
+        })
         .attr('fill', 'pink' )
     </script>
   </body>
