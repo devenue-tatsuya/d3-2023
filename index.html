@@ -38,13 +38,18 @@
         })
 
         // .attr('cy', 120 )
-        .attr('cy', height / 2 )
+        .attr('cy', height + 100 )
 
         // .attr('r', 10 )
         .attr('r', function(d) {
           return d
         })
         .attr('fill', 'pink' )
+        .transition()
+          .duration(800)
+          .delay(1000)
+          .attr('cy', height / 2 )
+
     </script>
   </body>
 </html>
