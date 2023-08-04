@@ -28,8 +28,6 @@
       <rect x='40' y='40' width='80' height='80' fill='tomato'/>
     </svg>
 
-
-
     <script>
     // d3
       const width = 600
@@ -57,9 +55,14 @@
         .attr('fill', 'pink' )
         .transition()
           .duration(800)
-          .delay(1000)
+          // .delay(1000)
+          .delay(function(d, i) {
+            return i * 200
+          })
+          .ease(d3.easeBounce)
           .attr('cy', height / 2 )
-
+        .transition()
+          .attr('cy', -100 )
     </script>
   </body>
 </html>
