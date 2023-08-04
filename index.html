@@ -11,8 +11,30 @@
       <circle/>
       <circle/>
     </svg>
-    
+
+    <!-- svg -->
+    <svg width='1160' height='160'>
+      <rect x='0' y='0' width='160' height='160' fill='skyblue'/>
+      <rect x='40' y='40' width='80' height='80' fill='tomato'/>
+    </svg>
+
+    <svg width='160' height='160' viewBox='0, 0, 300, 300'>
+      <rect x='0' y='0' width='160' height='160' fill='skyblue'/>
+      <rect x='40' y='40' width='80' height='80' fill='tomato'/>
+    </svg>
+
+    <svg width='160' height='160' viewBox='30, 30, 80, 80'>
+      <rect x='0' y='0' width='160' height='160' fill='skyblue'/>
+      <rect x='40' y='40' width='80' height='80' fill='tomato'/>
+    </svg>
+
+
+
     <script>
+    // d3
+      const width = 600
+      const height = 240
+
       let data = [15,20,5]
       let circles =
         d3.select('svg')
@@ -20,10 +42,24 @@
           .data(data)
 
       circles
-        .attr('cx', 0 )
-        .attr('cy', 120 )
-        .attr('r', 10 )
+        // .attr('cx', 0 )
+        .attr('cx', function(d, i) {
+          return i * 50 + 50
+        })
+
+        // .attr('cy', 120 )
+        .attr('cy', height + 100 )
+
+        // .attr('r', 10 )
+        .attr('r', function(d) {
+          return d
+        })
         .attr('fill', 'pink' )
+        .transition()
+          .duration(800)
+          .delay(1000)
+          .attr('cy', height / 2 )
+
     </script>
   </body>
 </html>
